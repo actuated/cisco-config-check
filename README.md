@@ -3,7 +3,7 @@ Shell script to check Cisco config files, such as those downloaded with Smart In
 
 # Usage
 ```
-./cisco-check-config.sh [target mode] [target] [-o outfile] [options]
+./cisco-config-check.sh [target mode] [target] [-o outfile] [options]
 ```
 * You must specify one target mode and target:
   - **--file [target]** lets you specify a single file to parse.
