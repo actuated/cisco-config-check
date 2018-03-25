@@ -35,7 +35,7 @@ function fnUsage {
   echo
   echo "======================================[ usage ]======================================"
   echo
-  echo "./cisco-check-config.sh [target mode] [target] [-o outfile] [options]"
+  echo "./cisco-config-check.sh [target mode] [target] [-o outfile] [options]"
   echo
   echo "Target Modes (Must Specify One):"
   echo "--file [target]     Specify a single config file as a target."
