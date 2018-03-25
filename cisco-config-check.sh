@@ -1,8 +1,9 @@
 # cisco-config-check.sh (v1.0)
 # v1.0 - 3/24/2018 by Ted R (http://github.com/actuated)
 # Script to pull sensitive information from cisco configs (ex: configs extracted with Smart Install)
+# 3/25/2018 - Added wpa-psk check
 varDateCreated="3/24/2018"
-varDateLastMod="3/24/2018"
+varDateLastMod="3/25/2018"
 
 varMode=""
 varModeSet=0
@@ -29,6 +30,7 @@ function fnUsage {
   echo "^tacacs-server host"
   echo "^snmp-server community"
   echo "^snmp-server host"
+  echo "wpa-psk"
   echo "^line"
   echo  
   echo "Created $varDateCreated, last modified $varDateLastMod."
@@ -97,6 +99,12 @@ function fnCheckThisFile {
   if [ "$varCheckNow" != "" ]; then
     echo
     grep $varGrepOpts '^snmp-server host' "$varThisFile"
+  fi
+
+  varCheckNow=$(grep $varGrepOpts 'wpa-psk' "$varThisFile")
+  if [ "$varCheckNow" != "" ]; then
+    echo
+    grep $varGrepOpts wpa-psk "$varThisFile" -B 10 | grep $varGrepOpts 'wpa-psk\|authentication key-management\|dot11 ssid'
   fi
 
   if [ "$varDoLine" = "y" ]; then 

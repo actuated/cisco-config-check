@@ -20,4 +20,5 @@ For each target, the script will search that file for:
 * Local user credentials
 * RADIUS and TACACS host settings
 * SNMP community names and host settings
+* "wpa-psk" settings
 * "line"/vty settings
